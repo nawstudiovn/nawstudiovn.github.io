@@ -1,26 +1,37 @@
-<!doctype html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>VietNamSexyFood</title>
-  <base href="/">
+---
+layout: default
+title: A minimal, fixed sidebar grid portfolio Jekyll theme.
+description: A minimal, fixed sidebar grid portfolio Jekyll theme.
+featured_image: /images/social.jpg
+---
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<section class="portfolio">
 
-<link href="styles.3cc45e60cc40d2bf062b.bundle.css" rel="stylesheet"/></head>
-<body>
-  <app-vnsf>
-    <img
-      style="
-        position: absolute;
-        transform: translate(0vw, 10vh);
-        margin: 0 auto;
-        top: 25vh;
-        left: 42vw;
-        height: 30%;"
-      src='assets/svg/loading.svg'>
-  </app-vnsf>
-<script type="text/javascript" src="inline.3c081317dbf1ad6f7cb4.bundle.js"></script><script type="text/javascript" src="polyfills.9a6c8964c97880b1088b.bundle.js"></script><script type="text/javascript" src="scripts.be7ee6fcf26d0f3a5d1e.bundle.js"></script><script type="text/javascript" src="vendor.3fe263be084e0d02ab69.bundle.js"></script><script type="text/javascript" src="main.ecf1db6499b57acaac76.bundle.js"></script></body>
-</html>
+	<div class="content-wrap portfolio-wrap">
+
+		{% for project in site.projects reversed %}
+
+		<div class="portfolio-item">
+
+			<a class="portfolio-item__link" href="{{ project.url }}">
+
+				<div class="portfolio-item__image">
+					<img src="{{ project.featured_image  }}" alt="{{ project.title }}">
+				</div>
+
+				<div class="portfolio-item__content">
+					<div class="portfolio-item__info">
+						<h2 class="portfolio-item__title">{{ project.title }}</h2>
+						<p class="portfolio-item__subtitle">{{ project.subtitle }}</p>
+					</div>
+				</div>
+
+			</a>
+
+		</div>
+
+		{% endfor %}
+
+	</div>
+
+</section>
